@@ -133,3 +133,5 @@ my-kubernetes-project/
 
  10. Automation: Simplifies automation of deployments, updates, and scaling using tools like Helm, kubectl apply, or CI/CD pipelines.
 
+
+
