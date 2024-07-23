@@ -117,7 +117,7 @@
 <br>
 <br>
 
-## Examples of cronjob
+## Some of the examples of cronjob
 
 
 | Example  | Explaination |   
