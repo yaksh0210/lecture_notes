@@ -198,3 +198,46 @@ all:
 
 
 + ##### Note:  Ansible simplifies and automates system management, making it a valuable tool for sysadmins and DevOps professionals.
+
+
+
+
+
+# Note 2:
+
+<img src="block_rescue.png">
+
+<hr>
+
+### Block and Rescue in Ansible
+
++ In Ansible, a block is a logical grouping of tasks within a playbook that can be executed as a single unit. This makes it easy to manage complex playbooks by breaking them down into smaller, more manageable parts.
+
++ Here are the key points about block and rescue in Ansible:
+
+
+    + A block is a group of tasks that can be executed together.
+
+    + Blocks can be used to apply options to a group of tasks and avoid repeating code.
+
+    + The rescue keyword is used to define a set of tasks that will be executed if an error occurs in the block.
+
+    + The always section executes for all nodes, no matter if they succeed or fail.
+
++ Syntax
+
+```yml
+---
+- hosts: <hosts>
+  tasks:
+    - block:
+        - <task1>
+        - <task2>
+        - <task3>
+      rescue:
+        - <rescue_task1>
+        - <rescue_task2>
+        - <rescue_task3>
+      always:
+        - <always_task>
+``` 
