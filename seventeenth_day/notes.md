@@ -173,21 +173,13 @@ pipeline {
 
 + ###  Priority Order (from highest to lowest)
 
-    
     + Extra Variables
-    
     + Environment Variables
-    
     + Inventory Variables
-    
     + Group Variables
-    
     + Host Variables
-    
     + Role Variables
-    
     + Playbook Variables
-    
     + Facts
 
 <hr>
