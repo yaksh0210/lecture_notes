@@ -52,7 +52,7 @@ ansible-galaxy init {role_name}
     + ***vars:*** Contains variables defined for the role. These have quite a high precedence in Ansible.
 
 
-### what is node exporter in ansible ? as well as benifits of node exporter
+### What is node exporter in ansible ? as well as benifits of node exporter
 
 + Node Exporter is a Prometheus-compatible exporter that scrapes metrics from nodes and exposes them as Prometheus metrics. Ansible is a configuration management and provisioning tool that automates the setup of Node Exporter on remote servers.
 

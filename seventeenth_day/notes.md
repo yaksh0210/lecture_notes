@@ -189,3 +189,44 @@ pipeline {
 
 ## Jinja2 template:
 
+<img src="Jinja_software.png">
+
+### What is jinja2 template and why it use?
+
++ Jinja2 is a templating engine for Python that allows the creation of dynamic, customizable, and extensible templates. It is designed to be fast, expressive, and easy to use. Jinja2 templates are written in a syntax similar to Python, making it easy for developers familiar with Python to write templates.
+
++ Here are the key features of Jinja2:
+
+    
+    + Dynamic Data: Jinja2 templates can include dynamic data, such as variables and loops, which are evaluated at runtime.
+    
+    + Extensibility: Jinja2 allows customization of tags, filters (for formatting or transforming values), tests (for evaluating conditions), and globals.
+    
+    + Template Inheritance: Jinja2 supports template inheritance, allowing developers to define a base template and then extend it with child templates.
+    
+    + Autoescaping: Jinja2 has built-in autoescaping to prevent XSS attacks from untrusted user input.
+    
+    + Jinja2 is commonly used with the Flask web framework, but it can also be used with other Python web frameworks and applications.
+
++ Here’s an example of a simple Jinja2 template:
+
+```html.j2
+<!-- example.html.jinja -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <ul>
+      {% for item in items %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
+```
+    
++ In this example, title and items are variables that will be replaced with dynamic data when the template is rendered.
+
++ Jinja2 is also commonly used for generating HTML, but it can be used to generate any type of markup or code.
