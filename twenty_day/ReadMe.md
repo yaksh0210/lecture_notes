@@ -244,3 +244,215 @@ ansible-playbook playbook.yml -v
   retries: 60
   delay: 10
 ```
+
+
+
+### Ansibe Advanced Modules
+
+1. Ansible community.general Module Collection
+
+```
+https://docs.ansible.com/ansible/latest/collections/community/general/index.html
+```
+
+### Use Case:
+
++ The community.general collection includes a variety of advanced modules not found in the core Ansible distribution. These modules can be useful for complex tasks across different platforms.
+
+### Example:
+    
++ Module: community.general.nmap
+    
++ Use Case: Network scanning to identify open ports and services on hosts.
+
+```yml
+- name: Scan a network for open ports
+  community.general.nmap:
+    host: 192.168.1.1
+    ports: 22,80,443
+    state: present
+  register: scan_results
+
+- name: Show scan results
+  debug:
+    msg: "{{ scan_results }}"
+```
+
+2. Ansible docker_container Module
+
+### Use Case:
+
++ Manage Docker containers on hosts. This module is used to deploy, manage, and scale containerized applications.
+
+### Example:
+
++ Module: docker_container
+
++ Use Case: Deploy a Docker container and ensure it is running with specific configurations.
+
+```yml
+
+- name: Ensure nginx container is running
+  docker_container:
+    name: my_nginx
+    image: nginx:latest
+    state: started
+    ports:
+      - "8080:80"
+    volumes:
+      - /my/local/path:/usr/share/nginx/html
+```
+
+3. Ansible k8s Module
+
+### Use Case:
+
++ Manage Kubernetes resources such as deployments, services, and pods. This module is useful for deploying and managing containerized applications in a Kubernetes cluster.
+
+### Example:
+
++ Module: k8s
+
++ Use Case: Deploy a Kubernetes application from a YAML manifest.
+
+```yml
+- name: Deploy nginx in Kubernetes
+  k8s:
+    state: present
+    src: /path/to/nginx-deployment.yaml
+    kubeconfig: /path/to/kubeconfig
+```
+
+4. Ansible community.crypto Module Collection
+
+### Use Case:
+
++ Manage cryptographic operations such as certificates, keys, and encryption. This is crucial for security-focused tasks.
+
+### Example:
+
++ Module: community.crypto.openssl_certificate
+
++ Use Case: Generate a self-signed SSL certificate.
+
+```yml
+- name: Generate a self-signed SSL certificate
+  community.crypto.openssl_certificate:
+    path: /etc/ssl/certs/mycert.pem
+    privatekey_path: /etc/ssl/private/mykey.pem
+    common_name: mydomain.com
+    subject_alt_name: DNS:mydomain.com
+    provider: selfsigned
+    days: 365
+```
+5. Ansible command and shell Modules with async and poll Parameters
+
+### Use Case:
+
++ Run long-running commands asynchronously and poll for their status. This is useful for tasks that may take a long time to complete, such as software installations or large data migrations.
+
+### Example:
+
+
++ Module: command
+
++ Use Case: Execute a long-running script in the background.
+
+```yml
+- name: Run a long script asynchronously
+  command: /path/to/long-running-script.sh
+  async: 3600
+  poll: 10
+  register: long_running_result
+
+- name: Show the result
+  debug:
+    msg: "{{ long_running_result }}"
+```
+
+6. Ansible firewalld Module
+
+### Use Case:
+
++ Manage firewall rules using firewalld. This module is useful for configuring firewall settings dynamically on a system.
+
+### Example:
+
++ Module: firewalld
+
++ Use Case: Allow HTTP and HTTPS traffic.
+
+```yml
+- name: Allow HTTP and HTTPS traffic
+  firewalld:
+    service: http
+    permanent: yes
+    state: enabled
+
+- name: Allow HTTPS traffic
+  firewalld:
+    service: https
+    permanent: yes
+    state: enabled
+
+- name: Reload firewall rules
+  firewalld:
+    state: reloaded
+```
+
+7. Ansible setup Module with Filters
+
+### Use Case:
+
++ Collect detailed information about the system's hardware, software, and configuration. Useful for gathering facts and making decisions based on system state.
+
+### Example:
+
+
++ Module: setup
+
++ Use Case: Gather system facts and use them to make decisions.
+
+```yml
+- name: Gather system facts
+  setup:
+
+- name: Debug system memory
+  debug:
+    msg: "Total RAM is {{ ansible_memtotal_mb }} MB"
+```
+8. Ansible template Module with Advanced Jinja2 Features
+
+### Use Case:
+
++ Deploy configuration files from templates with dynamic content. Useful for generating configuration files where content is based on variables or conditions.
+
+### Example:
+
++ Module: template
++ Use Case: Deploy an Nginx configuration file with dynamic content.
+
+
+```yml
+- name: Deploy Nginx configuration
+  template:
+    src: /path/to/nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+```
+
++ nginx.conf.j2 Example:
+
+```nginx.conf.j2
+server {
+    listen 80;
+    server_name {{ server_name }};
+
+    location / {
+        proxy_pass http://{{ backend_service }};
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
