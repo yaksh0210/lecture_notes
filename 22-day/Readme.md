@@ -111,7 +111,7 @@ groups:
           severity: warning
         annotations:
           summary: "High CPU usage on {{ $labels.instance }}"
-          description: "CPU usage is over 90% for the last 2 minutes."
+          description: "CPU usage is over 90% for the last 2 minute."
 ```
 + Each of these examples showcases a basic usage scenario for different components of Prometheus, illustrating how it can be applied in practical monitoring and alerting setups.
 
