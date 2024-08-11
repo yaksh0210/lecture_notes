@@ -41,7 +41,7 @@
 
 ### ***Use Cases for Multi-Branch Pipelines***
 
-+ Feature branches: Use Multi-Branch Pipelines to manage feature branches, allowing teams to work on new features independently without affecting the main branch.
++ Feature branches: Use Multi-Branch Pipelines to manage feature branches, allowing team to work on new features independently without affecting the main branch.
 
 + Release branches: Use Multi-Branch Pipelines to manage release branches, enabling teams to stabilize and test releases independently of the main branch.
 
