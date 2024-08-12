@@ -278,3 +278,137 @@
 + A regional edge cache has a large cache than an individual edge location.
 
 + Data is removed from the cache at the edge location while the data is retained at the Regional Edge Caches.
+
+
+
+## AWS IAM
+
+<img src="IAM.png">
+
+<br>
+
+### 1. User
+
+***Definition:***
++ An IAM user is an entity that represents a person or application that interacts with AWS resources.
+
+***Purpose:***
+
++ IAM users have credentials (username and password or access keys) that allow them to access AWS services and resources.
+
+***Management:***
++ Users can be managed individually, and their permissions are controlled through policies attached to their account.
+
+### 2. User Groups
+
+***Definition:***
+
++ A user group is a collection of IAM users.
+
+***Purpose:***
+
++ User groups simplify the management of permissions by allowing you to assign permissions to a group rather than to individual users. Any user added to the group inherits the group's permissions.
+
+***Management:***
+
++ You can create and manage user groups in the IAM console, and attach policies to these groups to define what actions members can perform.
+
+### 3. Policies
+
+***Definition:*** 
+
++ Policies are documents that define permissions. They are written in JSON and specify what actions are allowed or denied for specific resources.
+
+***Purpose:*** 
+
++ Policies control access to AWS resources by granting or denying permissions based on the policies' rules. Policies can be attached to users, groups, or roles.
+
+***Management:***
+
++ AWS provides managed policies (predefined by AWS) and you can also create custom policies to meet specific needs.
+
+### 4. Custom Policies
+
+***Definition:***
+
++ Custom policies are user-defined policies created to provide tailored permissions that fit specific use cases.
+
+***Purpose:*** 
+
++ Custom policies allow more granular control over access compared to managed policies, which are more generic.
+
+***Management:*** 
+
++ You create and edit custom policies using the IAM policy editor in the AWS Management Console, and attach them to users, groups, or roles as needed.
+
+### 5. Roles
+
+***Definition:*** 
+
++ An IAM role is an AWS identity with specific permissions that can be assumed by users or services.
+
+***Purpose:*** 
+
++ Roles are used to delegate permissions to entities like IAM users, AWS services, or applications. Roles are particularly useful for cross-account access or when granting permissions to AWS services to perform actions on your behalf.
+
+***Management:*** 
+
++ Roles include policies that define what actions the role can perform. A role does not have permanent credentials but is assumed by trusted entities to temporarily gain the permissions associated with the role.
+
+
+## Credential Rotation
+
+<img src="Manage-AWS-Directory-Service-credentials-1.jpg">
+
+
+<br>
+
+**Definition:**
+
++ The practice of regularly changing or updating credentials (like passwords, API keys, or access tokens) to enhance security.
+
+**Purpose:**
+
++ Minimizes the risk of unauthorized access if credentials are compromised.
+
+**Frequency:**
+
++ Depends on policy; can be monthly, quarterly, or yearly.
+
+**Implementation:**
+
++ Often automated via tools to avoid manual errors and ensure compliance.
+
+**Best Practices:**
+
++ Use strong, unique credentials; update all systems and applications with new credentials; monitor for any access issues
+
+## Multifactor Authentication
+
+<img src="mfa.jpeg">
+
+<br>
+
+### **Definition:**
+
++ A security mechanism that requires two or more forms of verification to access an account or system.
+
++ **Components:**
+    
+    + Something You Know: Password or PIN.
+    
+    + Something You Have: Security token, smartphone app, or physical card.
+    
+    + Something You Are: Biometric data like fingerprints or facial recognition.
+
+**Purpose:**
+
++ Provides an additional layer of security beyond just a password.
+
+**Types:** 
+
++ SMS codes, email links, authentication apps, biometric scans.
+
+**Implementation:** 
+
++ Configured on user accounts, applications, and systems to ensure comprehensive security.
