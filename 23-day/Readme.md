@@ -234,10 +234,10 @@
 
 + The following are the components that make up the AWS infrastructure:
 
-    + Availability Zones
-    + Region
-    + Edge locations
-    + Regional Edge Caches
+    + <span style="color: blue">      Availability Zones
+    + <span style="color: red"> Region
+    + <span style="color: green"> Edge locations
+    + <span style="color: white"> Regional Edge Caches
 
 ### 1. Availability zone as a Data Center
 
