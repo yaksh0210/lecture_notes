@@ -197,6 +197,13 @@ aws configure
 
 ### 4. Storage Class
 
+<br>
+
+<img src="./images/s3_storageclasses.png">
+
+<br>
+<br>
+
 **Definition:** 
 
 + Storage classes are different types of storage options in S3 with varying costs and retrieval times.
