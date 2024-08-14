@@ -135,3 +135,135 @@ aws configure
 
 + Implement disaster recovery strategies by storing copies of critical data in geographically dispersed S3 buckets.
 
+
+<hr>
+
+### 1. Create Bucket
+
+**Definition:**
++ A bucket is a container for storing objects in Amazon S3.
+
+### Steps:
++ Sign in to the AWS Management Console.
++ Go to the S3 service.
++ Click "Create bucket."
++ Enter a unique name for the bucket and select a region.
++ Configure options like versioning, logging, and tags.
++ Set permissions and choose any additional settings.
++ Click "Create bucket" to finalize.
+
+### 2. Upload Objects
+
+**Definition:**
+
++ Objects are files and their metadata stored in a bucket.
+
+### Steps:
+
++ Go to the S3 service in the AWS Management Console.
++ Open the desired bucket.
++ Click "Upload."
++ Drag and drop files or use the file picker to select files.
++ Configure upload options like permissions and storage class.
++ Click "Upload" to complete the process.
+
+### 3. Give Public Access
+
+**Definition:** 
+
++ Public access allows anyone on the internet to view or download the objects in your bucket.
+
+### Steps:
+
++ Go to the S3 service and open your bucket.
++ Click on "Permissions" tab.
++ Edit the "Bucket Policy" or "Access Control List (ACL)" to allow public access.
++ Example Bucket Policy for public read access:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::your-bucket-name/*"
+    }
+  ]
+}
+```
++ Ensure the "Block public access" settings are configured correctly to allow public access.
+
+### 4. Storage Class
+
+**Definition:** 
+
++ Storage classes are different types of storage options in S3 with varying costs and retrieval times.
+
+### Types:
+
++ Standard: For frequently accessed data.
++ Intelligent-Tiering: Moves data between two access tiers when access patterns change.
++ One Zone-IA: For infrequent access, but in a single availability zone.
++ Glacier: For archival storage with retrieval times in minutes to hours.
++ Glacier Deep Archive: Lowest cost for long-term archival storage.
++ Selection: Choose based on access frequency, cost considerations, and retrieval needs.
+
+### 5. Pricing
+
+**Definition:** 
+
++ Pricing is based on the amount of data stored, the number of requests, and data transfer out.
+
+### Components:
+
++ Storage Costs: Charged per GB per month.
++ Requests and Data Retrieval: Charges for PUT, GET, and other operations.
++ Data Transfer: Costs for data transferred out of S3 to the internet or other AWS regions.
++ Additional Costs: For features like cross-region replication or lifecycle transitions.
+
+### 6. Lifecycle Management
+
+**Definition:** 
+
++ Automatically manages your objects to optimize costs and compliance by transitioning or expiring objects.
+
+### Features:
+
++ Transition Actions: Move objects between storage classes based on age or other criteria.
++ Expiration Actions: Automatically delete objects after a certain period.
+
+### Configuration:
+
++ Go to the "Management" tab of your bucket.
++ Click "Create lifecycle rule."
++ Define the scope (e.g., prefix or tag).
++ Set transition and expiration rules as needed.
++ Review and create the rule.
+
+### 7. Host a Static Website on S3
+
+**Definition:** 
+
++ Serve static web content like HTML, CSS, and JavaScript from an S3 bucket.
+
+### Steps:
+
++ Create and configure a bucket to host a static website:
+  
+    + Go to the S3 service and open your bucket.
+  
+    + Go to the "Properties" tab.
+  
+    + Enable "Static website hosting."
+  
+    + Specify the index document (e.g., index.html) and optionally an error document.
+  
+    + Upload your static website files to the bucket.
+  
+    + Configure bucket permissions to allow public access to the objects.
+  
+    + Access your website using the S3 endpoint URL provided in the static website hosting settings.
+  
+     
