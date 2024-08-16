@@ -348,8 +348,8 @@
 <br>
 
 + An Amazon Machine Image is a special type of virtual appliance that is used to instantiate (create) a virtual machine within EC2. 
-
 + It serves as the basic unit of deployment for services delivered using EC2. 
+
 
 + Whenever you want to launch an instance, you need to specify AMI. To launch instances, you can also use different AMIs. 
 
@@ -390,3 +390,34 @@
 + While the other way of doing it would be to configure your EC2 instance once and then create an image of that instance. 
 
 + Using that image you can deploy four more EC2 servers
+
+
+## AWS EBS - Elastic Block Store
+
+
+<img src="./images/ebs.jpg">
+
+<br>
+<br>
+
+### What is AWS EBS?
+
++ AWS EBS is also called AWS Elastic Block Store.
++ EBS is a service that provides storage volumes.
++ You can use provided storage volumes in Amazon EC2 instances.
++ EBS volumes are used for data that needs to persist.
++ It is important to backup the data with AWS EBS snapshots.
+
+    + After creating an EBS volume, you can attach it to an AWS EC2 instance.
+
+    + If the EC2 instance stops or is ?terminated, all the data on the attached EBS volume remains.
+
+### What are AWS EBS Snapshots?
+
++ EBS snapshot is an incremental data backup.
++ The first backup of a volume backups all the data.
++ Every next backup copies only a block of data that has changed since the last snapshot.
++ It saves on storage costs by not duplicating data.
+
+
+
