@@ -95,3 +95,56 @@
 + Improves availability and fault tolerance; can handle large volumes of traffic.
 
 
+
+## VPC in AWS
+
+<img src="vpc.png">
+
+<br>
+<hr>
+
+### What is AWS VPC?
+
++ Amazon Web Services (AWS) Virtual Private Cloud (VPC) is a service that allows users to create and manage their own virtual private network (VPN) in the AWS cloud. 
+
++ This allows users to have complete control over their own network environment, including the ability to select their own IP address range, create subnets, and configure route tables and network gateways.
+
++ One of the main benefits of using VPC is the ability to securely connect to the internet and to other AWS services. 
+
++ With VPC, users can create a public-facing subnet for their web servers, and a private-facing subnet for their databases. This allows for better security and isolation of sensitive data.
+
+
+### Amazon VPC (Virtual Private Cloud) Components
+
+**VPC**
+
++ You can launch AWS resources into a defined virtual network using Amazon Virtual Private Cloud (Amazon VPC). With the advantages of utilizing the scalable infrastructure of AWS, this virtual network closely mimics a conventional network that you would operate in your own data center. /16 user-defined address space maximum (65,536 addresses)
+
+**Subnetes**
+
++ To reduce traffic, the subnet will divide the big network into smaller, connected networks. Up to /16, 200 user-defined subnets.
+
+**Route Tables**
+
++ Route Tables are mainly used to Define the protocol for traffic routing between the subnets.
+
+**Network Access Control Lists**
+
++ Network Access Control Lists (NACL) for VPC serve as a firewall by managing both inbound and outbound rules. There will be a default NACL for each VPC that cannot be deleted.
+
+**Internet Gateway(IGW)**
+
++ The Internet Gateway (IGW) will make it possible to link the resources in the VPC to the Internet.
+
+**Network Address Translation (NAT)**
+ 
++ Network Address Translation (NAT) will enable the connection between the private subnet and the internet.
+
+
+### Use cases of Amazon VPC
+
++ Using VPC, you can host a public-facing website,  a single-tier basic web application, or just a plain old website.
+
++ The connectivity between our web servers, application servers, and database can be limited by VPC with the help of VPC peering. 
+
++ By managing the inbound and outbound connections, we can restrict the incoming and outcoming security of our application.
